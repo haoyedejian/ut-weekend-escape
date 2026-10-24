@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#EFEEEB">
+  <link rel="icon" href="data:,">
+  <title>UT · 周末出逃</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="appbar">
+      <button class="brand" id="brand" type="button" aria-label="UT 周末出逃。长按三秒，清空本次演示。">
+        <span class="brand-mark">UT</span>
+        <span class="brand-kicker" id="appKicker">周末出逃</span>
+        <span class="brand-hold" aria-hidden="true"></span>
+      </button>
+      <span class="app-meta mono" id="appMeta">NO.000</span>
+    </header>
+
+    <main class="screens">
+      <!-- 01 · 入口 -->
+      <section class="screen" id="screen-entry" data-kicker="周末出逃" data-meta="NO.000">
+        <div class="page entry-page">
+          <div class="hero" aria-hidden="true">
+            <svg viewBox="0 0 200 244">
+              <g fill="none" stroke="#3E5659" stroke-opacity=".16" stroke-width="1">
+                <path d="M4 168 C34 152 70 148 104 154 C142 160 172 150 196 160"/>
+                <path d="M4 182 C36 168 72 164 104 170 C144 176 174 166 196 176"/>
+                <path d="M4 196 C40 184 76 180 106 186 C144 192 176 182 196 192"/>
+                <path d="M4 210 C42 200 78 196 108 202 C146 208 178 198 196 208"/>
+              </g>
+              <g stroke="#9A5E18" fill="none" stroke-width="1.4">
+                <rect x="54" y="44" width="92" height="156" rx="2.5" fill="#E9E2D3"/>
+                <line x1="54" y1="58" x2="146" y2="58"/>
+                <line x1="100" y1="58" x2="100" y2="200"/>
+                <circle cx="94" cy="124" r="1.7" fill="#9A5E18" stroke="none"/>
+                <circle cx="106" cy="124" r="1.7" fill="#9A5E18" stroke="none"/>
+                <line x1="46" y1="200" x2="154" y2="200"/>
+                <line x1="54" y1="200" x2="54" y2="208"/>
+                <line x1="146" y1="200" x2="146" y2="208"/>
+              </g>
+              <g stroke="#9A5E18" stroke-opacity=".45" fill="none">
+                <rect x="63" y="66" width="31" height="13" rx="1.5"/>
+                <line x1="67" y1="70.5" x2="90" y2="70.5"/>
+                <line x1="67" y1="74.5" x2="83" y2="74.5"/>
+              </g>
+            </svg>
+          </div>
+          <div class="entry-copy">
+            <h1 class="display">周末出逃</h1>
+            <p class="sub">把这两天的身份，先放在这里。</p>
+          </div>
+          <div class="foot">
+            <button class="btn primary" id="btnStart" type="button">开始寄存</button>
+            <p class="footnote">仅存 48 小时 · 周日 18:00 取回</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 · 寄存 -->
+      <section class="screen" id="screen-seal" data-kicker="第一步 / 寄存社会身份" data-meta="01 / 03">
+        <div class="page">
+          <div class="progress" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+          <div class="slips">
+            <label class="slip">
+              <span class="field">别人怎么称呼你</span>
+              <input id="label-0" data-index="0" type="text" maxlength="16" autocomplete="off" placeholder="留空也可以">
+            </label>
+            <label class="slip">
+              <span class="field">这周你在为什么负责</span>
+              <input id="label-1" data-index="1" type="text" maxlength="24" autocomplete="off" placeholder="留空也可以">
+            </label>
+            <label class="slip">
+              <span class="field">这两天暂时不想提起的事</span>
+              <input id="label-2" data-index="2" type="text" maxlength="24" autocomplete="off" placeholder="留空也可以">
+            </label>
+          </div>
+          <p class="slipnote">写不下去，就留空。</p>
+          <div class="foot">
+            <button class="btn primary" id="btnSeal" type="button">封存</button>
+            <p class="footnote">纸片会滑进木柜，柜门合上，<br>你会拿到一块编号牌。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 · 签发 -->
+      <section class="screen" id="screen-issue" data-kicker="第二步 / 签发临时身份" data-meta="TEMP ID">
+        <div class="page">
+          <div class="progress" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></div>
+          <div class="seal-receipt">
+            <span class="mono" id="issueNo">NO.0000</span>
+            <span id="sealNote">社会身份已封存</span>
+          </div>
+          <div class="draw-stage" id="drawStage">
+            <div class="deck" aria-hidden="true">
+              <i class="cardback"></i><i class="cardback"></i><i class="cardback"></i><i class="cardback"></i><i class="cardback"></i>
+            </div>
+            <div class="draw-card" id="drawCard">
+              <div class="face back" aria-hidden="true">
+                <span class="back-mono">UT · TEMP ID</span>
+                <span class="back-mark">UT</span>
+                <span class="back-sub">周末出逃</span>
+                <svg class="back-lines" viewBox="0 0 200 120" preserveAspectRatio="none">
+                  <g fill="none" stroke="#3E5659" stroke-opacity=".18" stroke-width="1">
+                    <path d="M-10 96 C30 70 76 74 110 88 C142 101 168 96 210 82"/>
+                    <path d="M-10 108 C34 84 78 88 112 101 C146 114 172 108 210 96"/>
+                    <path d="M-10 120 C38 98 80 102 114 114 C148 126 176 120 210 110"/>
+                  </g>
+                </svg>
+              </div>
+              <div class="face front" id="cardFront">
+                <span class="card-ring" aria-hidden="true"></span>
+                <div class="idrow"><span class="mono" id="cardNo">NO.0000</span><span class="mono">48H</span></div>
+                <h2 class="idname" id="cardName">临时身份</h2>
+                <p class="idline" id="cardLine"></p>
+                <ul class="permits" id="cardPermits"></ul>
+                <div class="handover">
+                  <span class="field">交接词</span>
+                  <p id="cardHandover"></p>
+                </div>
+                <dl class="idmeta">
+                  <div><dt>随身物</dt><dd id="cardObject"></dd></div>
+                  <div><dt>去向</dt><dd id="cardTendency"></dd></div>
+                  <div><dt>有效期</dt><dd>周五 18:00 — 周日 18:00</dd></div>
+                </dl>
+                <p class="cardnote">不记名 · 不挂失 · 到期作废</p>
+              </div>
+            </div>
+          </div>
+          <div class="foot">
+            <button class="btn primary" id="btnDraw" type="button">抽取临时身份</button>
+            <div class="row" id="issuedActions" hidden>
+              <button class="btn ghost" id="btnReroll" type="button">换一张</button>
+              <button class="btn primary" id="btnAccept" type="button">接受这张</button>
+            </div>
+            <p class="footnote" id="issueHint">六张卡背朝上。抽到哪张，就过哪一种两天。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 · 目的地 -->
+      <section class="screen" id="screen-dest" data-kicker="第三步 / 选一个方向" data-meta="3 / 3">
+        <div class="page">
+          <div class="progress" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <div class="dest-preview">
+            <svg viewBox="0 0 260 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="260" height="120" fill="#F1F0E8"/>
+              <g stroke="#3E5659" stroke-opacity=".2" fill="none">
+                <path d="M-12 40 C28 22 68 26 98 42 C126 57 142 78 134 96 C126 114 96 124 60 116 C24 108 -2 90 -10 68 C-16 56 -24 46 -12 40Z"/>
+                <path d="M-4 46 C32 31 68 34 94 48 C118 61 132 79 125 94 C118 109 94 117 62 110 C30 103 8 87 0 68 C-4 58 -12 50 -4 46Z"/>
+                <path d="M4 52 C36 39 68 42 90 54 C110 65 122 80 116 92 C110 104 92 110 64 104 C36 98 18 84 11 68 C8 60 0 55 4 52Z"/>
+                <path d="M190 22 C212 14 238 20 250 34 C262 48 254 66 236 72 C216 78 194 68 188 52 C184 42 182 26 190 22Z"/>
+                <path d="M196 28 C214 22 234 27 244 38 C254 49 247 63 233 67 C217 72 200 64 195 52 C192 44 190 31 196 28Z"/>
+              </g>
+              <g stroke="#66665F" stroke-width="1" stroke-dasharray="3 4" fill="none" opacity=".55">
+                <path d="M92 116 C100 100 114 86 132 78"/>
+                <path d="M212 76 C206 90 214 104 224 112"/>
+              </g>
+              <g id="previewPin">
+                <circle id="previewRing" cx="130" cy="81" r="8" fill="none" stroke="#3E5659" stroke-opacity=".32"/>
+                <circle id="previewDot" cx="130" cy="81" r="4" fill="#3E5659"/>
+              </g>
+              <g font-family="DM Mono, monospace" font-size="7" fill="#66665F" letter-spacing=".6">
+                <text x="9" y="16">N</text>
+              </g>
+            </svg>
+            <span class="previewtag">示意 · 非真实地图</span>
+          </div>
+          <div class="dests" id="dests">
+            <button class="dest" type="button" data-dest="north" aria-pressed="true">
+              <svg viewBox="0 0 42 30" aria-hidden="true">
+                <g fill="none" stroke="#3E5659" stroke-width="1"><path d="M1 24 C7 17 12 11 18 15 C23 18 27 12 33 10 C36 9 39 11 41 14"/><path d="M1 27 C8 21 13 24 19 20 C25 16 30 21 41 18"/><circle cx="33" cy="6" r="3"/></g>
+              </svg>
+              <span class="dest-copy">
+                <span class="dt">北 · 草坡与水塘</span>
+                <span class="dd">单程 1H 40 · 步行 6KM</span>
+              </span>
+              <span class="check" aria-hidden="true"></span>
+            </button>
+            <button class="dest" type="button" data-dest="west" aria-pressed="false">
+              <svg viewBox="0 0 42 30" aria-hidden="true">
+                <g fill="none" stroke="#3E5659" stroke-width="1"><path d="M1 18 C9 15 16 18 22 16 C29 14 35 16 41 15"/><path d="M1 22 C9 19 16 22 22 20 C29 18 35 20 41 19"/><path d="M1 26 C9 23 16 26 22 24 C29 22 35 24 41 23"/></g>
+              </svg>
+              <span class="dest-copy">
+                <span class="dt">西 · 老码头</span>
+                <span class="dd">单程 1H 10 · 步行 3KM</span>
+              </span>
+              <span class="check" aria-hidden="true"></span>
+            </button>
+            <button class="dest" type="button" data-dest="south" aria-pressed="false">
+              <svg viewBox="0 0 42 30" aria-hidden="true">
+                <g fill="none" stroke="#3E5659" stroke-width="1"><path d="M2 8 C9 4 14 9 20 7 C27 5 32 9 40 6"/><path d="M2 15 C10 11 15 16 21 14 C28 12 33 16 40 13"/><path d="M2 22 C10 18 15 23 21 21 C28 19 33 23 40 20"/><path d="M2 28 C10 24 15 28 21 27 C28 25 33 28 40 26"/></g>
+              </svg>
+              <span class="dest-copy">
+                <span class="dt">南 · 溪谷</span>
+                <span class="dd">单程 2H 05 · 步行 8KM</span>
+              </span>
+              <span class="check" aria-hidden="true"></span>
+            </button>
+          </div>
+          <p class="dnote">选一个。剩下的两个，下次还在。</p>
+          <div class="foot">
+            <button class="btn primary" id="btnGo" type="button">就这里</button>
+            <p class="footnote">只有三个。不给你更多。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 · 出逃 + 归还 -->
+      <section class="screen" id="screen-escape" data-kicker="出逃中 / 周六" data-meta="SAT">
+        <div class="page">
+          <div class="seg" id="seg" role="tablist" aria-label="出逃与归还">
+            <button class="on" id="tabLive" type="button" data-tab="live" role="tab" aria-selected="true" aria-controls="panelLive">出逃中</button>
+            <button id="tabBack" type="button" data-tab="back" role="tab" aria-selected="false" aria-controls="panelBack" tabindex="-1">归还</button>
+          </div>
+          <div class="panel" id="panelLive" role="tabpanel" aria-labelledby="tabLive">
+            <div class="livebar">
+              <span class="dot" aria-hidden="true"></span>
+              <span id="liveElapsed">已经离开 23:20</span>
+              <span class="place" id="livePlace">北 · 草坡水塘</span>
+            </div>
+            <div class="frags" id="frags"></div>
+            <div class="addrow">
+              <button class="add" id="btnPhoto" type="button">＋ 留一张</button>
+              <button class="add" id="btnWrite" type="button">＋ 写一句</button>
+            </div>
+            <p class="livefoot" id="liveFoot">一共最多六条 · 只有你能看见</p>
+          </div>
+          <div class="panel" id="panelBack" role="tabpanel" aria-labelledby="tabBack" hidden>
+            <div class="returnblock" id="returnBlock">
+              <p class="rt display">太阳落了。</p>
+              <p class="returnrecap" id="returnRecap">你在西 · 老码头，待了 23:20，留下 3 条。</p>
+              <div class="returnmid" aria-hidden="true">
+                <svg viewBox="0 0 200 90">
+                  <path d="M74 54 A26 26 0 0 1 126 54 Z" fill="#9A5E18" fill-opacity=".08" stroke="#9A5E18" stroke-opacity=".45" stroke-width="1"/>
+                  <path d="M14 54 H186" stroke="#3E5659" stroke-opacity=".28" stroke-width="1"/>
+                  <path d="M28 66 C68 62 132 62 172 66" fill="none" stroke="#3E5659" stroke-opacity=".15" stroke-width="1"/>
+                  <path d="M46 75 C84 72 120 72 154 75" fill="none" stroke="#3E5659" stroke-opacity=".1" stroke-width="1"/>
+                </svg>
+              </div>
+              <div class="returnbottom">
+                <p class="returnhint" id="returnHint">身份还没取回 · 距离取回 24:40</p>
+                <button class="btn primary" id="btnReturn" type="button">归还身份</button>
+              </div>
+            </div>
+          </div>
+          <input id="photoInput" class="hidden-input" type="file" accept="image/*" capture="environment">
+        </div>
+      </section>
+
+      <!-- 06 · 地图 -->
+      <section class="screen" id="screen-map" data-kicker="你的地图" data-meta="2 个胶囊">
+        <div class="page">
+          <div class="mapwrap">
+            <svg id="mapSvg" viewBox="0 0 292 330" preserveAspectRatio="xMidYMid meet" aria-label="胶囊地图，示意图">
+              <rect width="292" height="330" fill="#F3F2EC"/>
+              <g fill="none" stroke="#3E5659" stroke-opacity=".17" stroke-width="1">
+                <path d="M-20 96 C36 62 92 58 140 78 C186 97 214 128 208 162 C202 198 166 218 118 212 C66 206 18 186 2 156 C-8 136 -32 116 -20 96 Z"/>
+                <path d="M-8 102 C42 72 92 68 134 86 C174 103 198 130 192 158 C186 188 156 204 116 199 C72 194 32 176 18 150 C10 132 -8 118 -8 102 Z"/>
+                <path d="M6 108 C48 84 92 80 128 96 C162 110 182 133 177 156 C172 180 148 192 114 188 C78 184 46 170 34 148 C27 134 8 122 6 108 Z"/>
+                <path d="M164 42 C196 26 232 34 250 54 C268 74 262 100 240 112 C216 125 184 116 170 96 C158 78 148 54 164 42 Z"/>
+                <path d="M176 50 C202 38 230 44 244 60 C258 76 253 96 236 106 C216 116 192 109 181 94 C172 80 164 60 176 50 Z"/>
+                <path d="M196 208 C226 196 262 204 274 226 C286 248 274 274 250 284 C224 294 196 282 188 260 C182 242 182 216 196 208 Z"/>
+                <path d="M206 216 C230 207 256 213 265 229 C274 246 264 265 246 272 C226 280 204 271 199 255 C195 241 195 223 206 216 Z"/>
+                <path d="M30 250 C56 238 88 246 98 266 C108 286 94 306 70 310 C44 314 22 300 20 280 C19 266 20 256 30 250 Z"/>
+              </g>
+              <g stroke="#66665F" stroke-width="1" stroke-dasharray="3 4" fill="none" opacity=".55">
+                <path d="M146 318 C142 286 150 250 146 224 C142 198 158 176 186 160"/>
+                <path d="M146 318 C120 296 84 288 64 272"/>
+              </g>
+              <g id="mapPoints"></g>
+              <g stroke="#3E5659" stroke-opacity=".13" stroke-width="1">
+                <line x1="44" y1="120" x2="54" y2="112"/>
+                <line x1="56" y1="128" x2="66" y2="120"/>
+                <line x1="68" y1="136" x2="78" y2="128"/>
+                <line x1="80" y1="144" x2="90" y2="136"/>
+                <line x1="58" y1="112" x2="66" y2="105"/>
+              </g>
+              <g font-family="DM Mono, monospace" font-size="7" fill="#66665F" letter-spacing=".8" style="paint-order:stroke" stroke="#F3F2EC" stroke-width="2.4">
+                <text x="146" y="248" text-anchor="middle">草坡</text>
+                <text x="186" y="177" text-anchor="middle">码头</text>
+                <text x="64" y="289" text-anchor="middle">溪谷</text>
+                <text x="15" y="34" stroke="none">N</text>
+              </g>
+              <g stroke="#66665F" stroke-width="1" opacity=".5">
+                <line x1="17" y1="42" x2="17" y2="52"/>
+                <path d="M17 42 l-2.5 5 h5 z" fill="#66665F" stroke="none"/>
+              </g>
+            </svg>
+          </div>
+          <div class="map-card" id="mapCard"></div>
+          <div class="mapfoot">
+            <span class="mono">只有你能看见</span>
+            <button class="link" id="btnRestart" type="button">重新寄存</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 封存仪式 -->
+    <div class="overlay ritual" id="sealRitual" aria-hidden="true">
+      <div class="ritual-stage">
+        <div class="ritual-slips" id="ritualSlips"></div>
+        <div class="ritual-cabinet" aria-hidden="true">
+          <span class="slot"></span>
+          <i class="door left"></i>
+          <i class="door right"></i>
+        </div>
+        <div class="stamp" id="sealStamp">SEALED</div>
+        <div class="ritual-code mono" id="ritualCode">NO.0000</div>
+        <p class="ritual-note" id="ritualNote">社会身份已封存</p>
+      </div>
+    </div>
+
+    <!-- 归还仪式 -->
+    <div class="overlay ritual return-ritual" id="returnRitual" aria-hidden="true">
+      <div class="return-stage">
+        <div class="return-labels" id="returnLabels" aria-hidden="true"></div>
+        <div class="return-cab-wrap" aria-hidden="true">
+          <div class="mini-cabinet">
+            <span class="slot"></span>
+            <div class="mini-card" id="returnCard"></div>
+            <i class="door left"></i>
+            <i class="door right"></i>
+          </div>
+        </div>
+        <div class="capsule-pill" id="capsulePill" aria-hidden="true">
+          <span class="mono" id="capsuleNo">NO.0000</span>
+          <span class="mono">48H · CAPSULE</span>
+        </div>
+        <p class="ritual-note">身份已回位 · 胶囊已封存</p>
+      </div>
+    </div>
+
+    <!-- 时间流逝 -->
+    <div class="overlay timelapse" id="timeLapse" aria-hidden="true">
+      <div class="tl-inner">
+        <span class="mono tl-kicker">TIME LAPSE</span>
+        <div class="tl-frame">
+          <p class="tl-date" id="tlFrom">周五 18:00</p>
+          <span class="tl-track" aria-hidden="true"><i></i></span>
+          <p class="tl-date" id="tlTo">周六 17:20</p>
+        </div>
+        <p class="tl-note">两天，被压成一条线。</p>
+      </div>
+    </div>
+
+    <div class="scrim" id="scrim"></div>
+
+    <!-- 写一句 -->
+    <div class="sheet" id="writeSheet" role="dialog" aria-modal="true" aria-labelledby="writeTitle" aria-hidden="true">
+      <div class="sheet-head">
+        <span class="mono" id="writeTitle">写一句</span>
+        <button class="sheet-close" id="closeWrite" type="button" aria-label="关闭">关闭</button>
+      </div>
+      <textarea id="writeText" maxlength="60" placeholder="只写一句。只有你能看见。"></textarea>
+      <div class="sheet-foot">
+        <span class="mono" id="writeCount">0 / 60</span>
+        <button class="btn primary small" id="btnSaveText" type="button" disabled>留好</button>
+      </div>
+    </div>
+
+    <!-- 胶囊详情 -->
+    <div class="sheet" id="capsuleSheet" role="dialog" aria-modal="true" aria-labelledby="capsuleBody" aria-hidden="true">
+      <button class="sheet-close corner" id="closeCapsule" type="button" aria-label="关闭">关闭</button>
+      <div id="capsuleBody"></div>
+    </div>
+
+    <div class="toast" id="toast" role="status"></div>
+    <div class="sr-only" id="live" aria-live="polite"></div>
+  </div>
+
+  <script src="js/content.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
